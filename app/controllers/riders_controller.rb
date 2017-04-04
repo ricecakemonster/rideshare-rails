@@ -4,6 +4,6 @@ class RidersController < ApplicationController
   end
 
   def show
-    rider = Rider.find(params[:id])
+    @rider = Rider.find(params[:id])
   end
 end

@@ -1,0 +1,15 @@
+<h1><%= @rider.name %></h1>
+<h2>Phone number: <%= @rider.phone_num%></h2>
+<h2>Trips: </h2>
+<ol>
+  <% total = 0 %>
+  <% if @rider.trips.empty?%>
+  <%= "No rides history" %>
+  <% else %>
+  <% @rider.trips.each do |trip| %>
+  <li><%= trip.date %></li>
+  <% total += trip.cost %>
+  <% end %>
+<h2><%= "Total amount this rider has been charged: $#{total}" %></h2>
+  <%end%>
+</ol>
