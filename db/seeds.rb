@@ -24,6 +24,7 @@ trip_csv_text = File.read(Rails.root.join('lib', 'seeds', 'trips.csv'))
 trip_csv = CSV.parse(trip_csv_text, headers: true)
 
 trip_csv.each do |row|
+    next if row['driver_id'] == 0 || row['rider_id'] == 0
     t = Trip.new
     t.driver_id = row['driver_id']
     t.rider_id = row['rider_id']
