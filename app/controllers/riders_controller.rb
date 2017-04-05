@@ -28,6 +28,12 @@ class RidersController < ApplicationController
 
     redirect_to rider_path
   end
+
+  def destroy
+    rider = Rider.find(params[:id])
+    rider.destroy
+    redirect_to riders_path
+  end
   
   private
 
