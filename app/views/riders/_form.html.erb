@@ -1,0 +1,10 @@
+<section>
+  <%= form_for @rider do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :phone_num %>
+    <%= f.text_field :phone_num %>
+    <%= f.submit value: "#{submit_text} Rider" %>
+  <% end %>
+</section>
+<%= link_to "Rider List", riders_path %>
