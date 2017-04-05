@@ -1,0 +1,5 @@
+<%= form_for @driver do |d| %>
+  Name: <%= d.text_field :name %>
+  VIN: <%= d.text_field :vin %>
+  <%= d.submit value: "#{submit_text}"%>
+<%end%>

@@ -43,7 +43,7 @@ class DriversController < ApplicationController
     # ~~~~~~~~~~~~~~~~~~~~~~~~ooooooooooooooooooooooo~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     private
 
-    def task_params
+    def driver_params
         params.require(:driver).permit(:name, :vin)
     end
 end

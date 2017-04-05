@@ -1,1 +1,22 @@
 <h1> <%= @driver[:name] %>'s Profile </h1>
+
+<p>VIN: <%= @driver[:vin] %>
+<p>Total Earnings: $<%= @driver.earnings%>
+<p>Average Rating: <%= @driver.rating%> out of 5 </p>
+
+  <ul>
+    <% @driver.driver_trips.each do |trip| %>
+    <li>
+    <p>Trip ID: <%= trip[:id]%></p>
+    <p>Rider ID: <%= trip[:rider_id] %></p>
+    <p>Date: <%= trip[:date]%></p>
+    <p>Cost: $<%= trip[:cost]%></p>
+    <p>Rating: <%= trip[:rating]%></p>
+  </li>
+  <%end%>
+</ul>
+
+
+<%= link_to 'Delete', driver_path(params[:id]), data: {:confirm => 'You sure?'}, :method => :delete%>
+<%= link_to "Edit this drivser", edit_driver_path %>
+<%= link_to "Back to driver list", drivers_path %>
