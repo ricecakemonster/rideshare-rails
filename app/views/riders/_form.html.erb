@@ -2,9 +2,17 @@
   <%= form_for @rider do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
-    <%= f.label :phone_num %>
+    <%= f.label "Phone Number" %>
     <%= f.text_field :phone_num %>
     <%= f.submit value: "#{submit_text} Rider" %>
   <% end %>
 </section>
-<%= link_to "Rider List", riders_path %>
+<section>
+<% if @rider.errors.any? %>
+  <% @rider.errors.each do |attribute, message| %>
+    <%= attribute.capitalize %> <%= message %>
+  <% end %>
+<% end %>
+</section>
+
+<div><%= link_to "Rider List", riders_path %></div>

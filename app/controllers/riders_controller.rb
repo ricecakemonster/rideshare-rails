@@ -12,9 +12,12 @@ class RidersController < ApplicationController
   end
 
   def create
-    rider = Rider.create(rider_params)
-
-    redirect_to riders_path
+    @rider = Rider.new(rider_params)
+    if @rider.save
+      redirect_to riders_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -34,7 +37,7 @@ class RidersController < ApplicationController
     rider.destroy
     redirect_to riders_path
   end
-  
+
   private
 
   def rider_params
