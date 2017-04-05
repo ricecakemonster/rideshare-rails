@@ -1,0 +1,11 @@
+<h1> Trip #<%= @trip[:id]%> Details </h1>
+
+<p>Driver ID: <%= @trip[:driver_id] %></p>
+<p>Rider ID: <%= @trip[:rider_id] %></p>
+<p>Date: <%= @trip[:date]%></p>
+<p>Cost: $<%= @trip[:cost]%></p>
+<p>Rating: <%= @trip[:rating]%></p>
+
+<%= link_to 'Delete', trip_path(params[:id]), data: {:confirm => 'You sure?'}, :method => :delete%>
+<%= link_to "Edit this trip", edit_trip_path %>
+<%= link_to "Back", :back %>

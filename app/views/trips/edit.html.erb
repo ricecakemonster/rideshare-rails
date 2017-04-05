@@ -1,0 +1,11 @@
+<h1> Trip #<%= @trip[:id]%> Edit Form </h1>
+
+<%= form_for @trip do |t| %>
+  Driver ID: <%= t.integer :driver_id %>
+  Rider ID: <%= t.integer :rider_id %>
+  Date: <%= t.date :date%>
+  Cost: $<%= t.float :cost%>
+  Rating: <%= t.float :rating%>
+
+  <%= t.submit value: "Save Changes"%>
+<%end%>
