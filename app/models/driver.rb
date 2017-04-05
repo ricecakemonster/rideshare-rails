@@ -7,8 +7,8 @@ class Driver < ApplicationRecord
 
     def earnings
         driver_trips
-        earnings = @driver_trips.map(&:cost)
-        @total_earnings = earnings.reduce(:+).round(2)
+        driver_earnings = @driver_trips.map(&:cost)
+        @total_earnings = (driver_earnings.reduce(:+) * 0.85).round(2)
     end
 
     def rating
