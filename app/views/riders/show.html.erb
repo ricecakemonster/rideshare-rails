@@ -14,6 +14,8 @@
 </ol>
 <h2><%= "Total amount this rider has been charged: $#{total}" %></h2>
 
+<%= link_to "New Trip", new_trip_path(@rider.id), method: :post %>
 <%= link_to "Edit", edit_rider_path(@rider.id) %>
 <%= link_to "Delete", rider_path(@rider.id), method: :delete, data: {confirm: "Are you sure to delete rider #{@rider.name}?"}%>
 <%= link_to "Go back to Rider List", riders_path %>
+<%= link_to "New rider", new_rider_path%>

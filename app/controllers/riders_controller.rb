@@ -38,6 +38,12 @@ class RidersController < ApplicationController
     redirect_to riders_path
   end
 
+  def new_trip
+    @rider = Rider.find(params[:id])
+    @rider.trips.create(driver_id: rand(1..100), cost: 0.0, date: Time.now)
+    redirect_to rider_path
+  end
+
   private
 
   def rider_params
