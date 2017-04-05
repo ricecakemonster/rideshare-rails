@@ -1,5 +1,6 @@
 class Driver < ApplicationRecord
     has_many :trips
+    validates :vin, uniqueness: true, length: { in: 11..17 }
 
     def driver_trips
         @driver_trips = Trip.where(driver_id: id)
