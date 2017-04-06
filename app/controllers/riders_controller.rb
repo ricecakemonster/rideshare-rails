@@ -25,11 +25,13 @@ class RidersController < ApplicationController
   end
 
   def update
-    rider = Rider.find(params[:id])
-    rider.update_attributes(rider_params)
-    rider.save
+    @rider = Rider.find(params[:id])
 
-    redirect_to rider_path
+    if @rider.update_attributes(rider_params)
+    redirect_to rider_path(@rider)
+    else
+      render 'edit'
+    end
   end
 
   def destroy
