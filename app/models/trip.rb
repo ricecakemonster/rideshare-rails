@@ -6,5 +6,5 @@ class Trip < ApplicationRecord
     validates :rider_id, presence: true, numericality: { only_integer: true }
     validates :date, presence: true
     validates :cost, numericality: { only_float: true }
-    validates :rating, numericality: { only_float: true }
+    validates :rating, numericality: { only_float: true, greater_than: 0, less_than: 6 }
 end

@@ -1,8 +1,12 @@
 <h1>Riders</h1>
 <ol>
-<% @riders.each do |rider| %>
-  <li><%= link_to rider.name, rider_path(rider.id) %></li>
+<% riders = @riders.order(:id) %>
+<% riders.each do |rider| %>
+  <li>
+    <div><%= link_to rider.name, rider_path(rider.id) %></div>
+    <div><%= rider.phone_num %></div>
+  </li>
 <% end %>
 </ol>
 
-<%= link_to "New rider", new_rider_path%>
+<%= link_to "Add a New Rider", new_rider_path%>
