@@ -5,6 +5,7 @@ class RidersController < ApplicationController
 
     def show
         @rider = Rider.find(params[:id])
+        session[:prev_url] = request.referer
     end
 
     def new

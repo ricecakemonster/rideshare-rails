@@ -15,12 +15,13 @@ class TripsController < ApplicationController
     def show
         id = params[:id].to_i
         @trip = Trip.find(id)
+        session[:prev_url] = request.referer
     end
 
     def destroy
         trip = Trip.find(params[:id])
         trip.destroy
-        redirect_to :back
+        redirect_to session[:prev_url]
     end
 
     def update_rating

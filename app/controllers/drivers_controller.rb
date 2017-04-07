@@ -32,6 +32,7 @@ class DriversController < ApplicationController
     def show
         id = params[:id].to_i
         @driver = Driver.find(id)
+        session[:prev_url] = request.referer
     end
 
     def destroy
