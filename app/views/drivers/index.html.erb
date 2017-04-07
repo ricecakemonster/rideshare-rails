@@ -2,10 +2,17 @@
 <%= link_to 'Click to add new driver', new_driver_path %>
 
 <ol>
-  <% @drivers.each do |driver| %>
+  <% @drivers.sort_by{|d| d.id}.each do |driver| %>
     <li>
       <p>Name: <%= link_to driver[:name], driver_path(driver[:id]) %></p>
       <p>VIN: <%= driver[:vin] %> </p>
+
+      <% if driver.driver_trips.empty? %>
+        <p>No trips have been given yet</p>
+      <%else%>
+        <p>Average Rating: <%= driver.rating%> out of 5 </p>
+      <%end%>
+
     </li>
     <%end%>
   </ol>

@@ -8,10 +8,6 @@ class Rider < ApplicationRecord
 
     def total_cost
         @trips = Trip.where(rider_id: id)
-        @total = 0
-            @trips.each do |trip|
-                @total += trip.cost
-            end
-        return @total
+        return @trips.map {|trip| trip.cost }.sum
     end
 end

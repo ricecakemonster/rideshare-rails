@@ -6,6 +6,11 @@
   Date: <%= f.date_field :date%>
   Cost: $<%= f.number_field :cost%>
   Rating: <%= f.number_field :rating%>
-
   <%= f.submit "Save Changes"%>
 <%end%>
+
+<% if @trip.errors.any? %>
+  <% @trip.errors.each do |attribute, message| %>
+    <%= attribute.capitalize %> <%= message %>
+  <% end %>
+<% end %>

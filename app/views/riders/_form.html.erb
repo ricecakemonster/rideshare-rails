@@ -6,6 +6,7 @@
     <div><%= f.submit value: "#{submit_text} Rider" %></div>
   <% end %>
 </section>
+
 <section>
 <% if @rider.errors.any? %>
   <% @rider.errors.each do |attribute, message| %>

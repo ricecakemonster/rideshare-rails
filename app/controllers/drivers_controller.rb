@@ -1,7 +1,7 @@
 class DriversController < ApplicationController
     def index
         @drivers = Driver.all
-      end
+    end
 
     def new
         @driver = Driver.new
@@ -21,9 +21,9 @@ class DriversController < ApplicationController
     end
 
     def update
-        driver = Driver.find(params[:id])
-        if driver.update(driver_params)
-            redirect_to driver_path(driver)
+        @driver = Driver.find(params[:id])
+        if @driver.update(driver_params)
+            redirect_to driver_path(@driver)
         else
             render 'edit'
         end
