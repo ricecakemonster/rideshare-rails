@@ -1,4 +1,4 @@
-<% @trips.each do |trip| %>
+<% @rider.trips.each do |trip| %>
     <li>
       <p>Trip ID: <%= link_to trip.id, trip_path(trip.id)%></p>
       <p>Trip Date: <%= trip.date %></p>
