@@ -4,7 +4,7 @@ class TripsController < ApplicationController
     end
 
     def update
-        edit
+        @trip = Trip.find(params[:id])
         if @trip.update(trip_params)
             redirect_to trip_path(@trip)
         else
@@ -23,20 +23,18 @@ class TripsController < ApplicationController
         redirect_to :back
     end
 
+    def update_rating
+        @trip = Trip.find(params[:id])
+        @trip.update(trip_params)
+        @rider = @trip.rider
+        render 'riders/show'
+    end
+
     # ~~~~~~~~~~~~~~~~~~~~~~~~ooooooooooooooooooooooo~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     private
 
     def trip_params
         params.require(:trip).permit(:driver_id, :rider_id, :date, :cost, :rating)
-    end
-
-    def update_rating
-        trip = Trip.find(params[:id])
-        if trip.update(trip_params)
-            redirect_to trips_path(trip)
-        else
-            redirect_to rider_path(@rider)
-        end
     end
 end

@@ -1,22 +1,12 @@
 <h1> Trip #<%= @trip[:id]%> Edit Form </h1>
 
-<<<<<<< HEAD
-<%= form_for @trip do |t| %>
-  Driver ID: <%= t.number_field :driver_id %>
-  Rider ID: <%= t.number_field :rider_id %>
-  Date: <%= t.date_field :date%>
-  Cost: <%= t.number_field :cost%>
-  Rating: <%= t.number_field :rating%>
-=======
 <%= form_for @trip do |f| %>
   Driver ID: <%= f.number_field :driver_id %>
   Rider ID: <%= f.number_field :rider_id %>
   Date: <%= f.date_field :date%>
   Cost: $<%= f.number_field :cost%>
   Rating: <%= f.number_field :rating%>
->>>>>>> ba092b8c134704d37263bafa20b6866160309953
-
-  <%= t.submit value: "Save Changes"%>
+  <%= f.submit "Save Changes"%>
 <%end%>
 
 <% if @trip.errors.any? %>
