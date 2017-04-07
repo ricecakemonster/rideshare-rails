@@ -14,7 +14,6 @@
     <p>Driver ID: <%= trip.driver_id %></p>
     <p>Cost: $<%= trip.cost %></p>
     <p><%= form_for trip do |t| %>
-    
       Rating: <%= t.number_field :rating%>
       <%= t.submit "Update Rating" %>
       <% end %>
