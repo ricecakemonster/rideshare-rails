@@ -3,5 +3,5 @@ Rails.application.routes.draw do
     resources :riders
     resources :trips, only: [:show, :edit, :destroy, :update]
 
-    post 'riders/:id/new_trip', to: 'riders#new_trip', as: 'new_trip'
+    post 'riders/:id', to: 'riders#new_trip', as: 'new_trip'
 end
