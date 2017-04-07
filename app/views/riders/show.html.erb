@@ -1,11 +1,13 @@
 <%= link_to "Return to the previous page", :back %>
 <h1><%= @rider.name %></h1>
+
 <h2>Phone number: <%= @rider.phone_num%></h2>
+
 <h2>Trips: </h2>
-<% @trips = @rider.trips.order(:date) %>
+
 <ol>
   <% if @rider.trips.empty?%>
-  <%= "No rides history" %>
+  <%= "#{@rider.name} has no trips" %>
   <% else %>
   <%= render partial: "riders/rider_detail", locals: { rider: @rider, trips: @trips } %>
   <% end %>

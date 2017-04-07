@@ -20,22 +20,21 @@ class TripsController < ApplicationController
     def destroy
         trip = Trip.find(params[:id])
         trip.destroy
-        redirect_to trips_path
+        redirect_to :back
     end
 
     def update_rating
         @trip = Trip.find(params[:id])
         @trip.update(trip_params)
         @rider = @trip.rider
-        render "riders/show"
+        render 'riders/show'
     end
 
     # ~~~~~~~~~~~~~~~~~~~~~~~~ooooooooooooooooooooooo~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
     private
 
     def trip_params
         params.require(:trip).permit(:driver_id, :rider_id, :date, :cost, :rating)
     end
-
-
 end
