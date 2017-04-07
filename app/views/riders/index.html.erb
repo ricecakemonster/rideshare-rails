@@ -2,7 +2,10 @@
 <ol>
 <% riders = @riders.order(:id) %>
 <% riders.each do |rider| %>
-  <li><%= link_to rider.name, rider_path(rider.id) %></li>
+  <li>
+    <div><%= link_to rider.name, rider_path(rider.id) %></div>
+    <div><%= rider.phone_num %></div>
+  </li>
 <% end %>
 </ol>
 

@@ -8,11 +8,21 @@
   <% else %>
   <% @trips = @rider.trips.order(:date) %>
   <% @trips.each do |trip| %>
-
   <li>
-  <p><%= link_to trip.date, trip_path(trip.id)%></p>
-  <p>Driver ID: <%= trip.driver_id %></p>
-  <p>Cost: $<%= trip.cost %></p>
+    <p>Trip ID: <%= link_to trip.id, trip_path(trip.id)%></p>
+    <p>Trip Date: <%= trip.date %></p>
+    <p>Driver ID: <%= trip.driver_id %></p>
+    <p>Cost: $<%= trip.cost %></p>
+    <p><%= form_for trip do |t| %>
+    
+      Rating: <%= t.number_field :rating%>
+      <%= t.submit "Update Rating" %>
+      <% end %>
+    </p>
+
+
+
+
   </li>
   <% total += trip.cost %>
   <% end %>
