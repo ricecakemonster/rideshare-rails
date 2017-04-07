@@ -4,9 +4,9 @@ class TripsController < ApplicationController
     end
 
     def update
-        trip = Trip.find(params[:id])
-        if trip.update(trip_params)
-            redirect_to trip_path(trip)
+        @trip = Trip.find(params[:id])
+        if @trip.update(trip_params)
+            redirect_to trip_path(@trip)
         else
             render 'edit'
         end
@@ -24,12 +24,10 @@ class TripsController < ApplicationController
     end
 
     def update_rating
-        trip = Trip.find(params[:id])
-        if trip.update(trip_params)
-            redirect_to trips_path(trip)
-        else
-            redirect_to rider_path(@rider)
-        end
+        @trip = Trip.find(params[:id])
+        @trip.update(trip_params)
+        @rider = @trip.rider
+        render "riders/show"
     end
 
     private

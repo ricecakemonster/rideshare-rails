@@ -43,11 +43,12 @@ class RidersController < ApplicationController
 
   def new_trip
     @rider = Rider.find(params[:id])
-    # if new_trip_ok?
+    puts @rider.attributes
+    if new_trip_ok?
     avail_drivers = Trip.where.not(rating: nil)
     driver = avail_drivers.sample
-    @rider.trips.create(driver_id: driver.driver_id, cost: 0.0, date: Time.now)
-    # end
+    trip = @rider.trips.create(driver_id: driver.driver_id, cost: 0.0, date: Time.now)
+    end
     redirect_to rider_path
   end
 

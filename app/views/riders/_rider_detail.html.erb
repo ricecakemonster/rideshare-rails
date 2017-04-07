@@ -8,7 +8,7 @@
       <p>
         <%# @trip = trip %>
         <%#= render partial: "form_rating"%>
-        <%= form_for trip do |t| %>
+        <%= form_for trip, url: update_rating_path(trip) do |t| %>
         Rating(1-5): <%= t.number_field :rating%>
         <%= t.submit "Update Rating" %>
         <% end %>

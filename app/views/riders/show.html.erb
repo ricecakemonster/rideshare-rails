@@ -7,7 +7,7 @@
   <% if @rider.trips.empty?%>
   <%= "No rides history" %>
   <% else %>
-  <%= render partial: "rider_detail", locals: { rider: @rider, trips: @trips } %>
+  <%= render partial: "riders/rider_detail", locals: { rider: @rider, trips: @trips } %>
   <% end %>
 </ol>
 
