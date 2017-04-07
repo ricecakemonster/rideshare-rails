@@ -3,3 +3,9 @@
   VIN: <%= d.text_field :vin %>
   <%= d.submit value: "#{submit_text}"%>
 <%end%>
+
+<% if @driver.errors.any? %>
+  <% @driver.errors.each do |attribute, message| %>
+    <%= attribute.capitalize %> <%= message %>
+  <% end %>
+<% end %>

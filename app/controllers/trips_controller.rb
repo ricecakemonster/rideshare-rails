@@ -4,9 +4,9 @@ class TripsController < ApplicationController
     end
 
     def update
-        trip = Trip.find(params[:id])
-        if trip.update(trip_params)
-            redirect_to trip_path(trip)
+        edit
+        if @trip.update(trip_params)
+            redirect_to trip_path(@trip)
         else
             render 'edit'
         end
@@ -21,5 +21,12 @@ class TripsController < ApplicationController
         trip = Trip.find(params[:id])
         trip.destroy
         redirect_to trips_path
+    end
+
+    # ~~~~~~~~~~~~~~~~~~~~~~~~ooooooooooooooooooooooo~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    private
+
+    def trip_params
+        params.require(:trip).permit(:driver_id, :rider_id, :date, :cost, :rating)
     end
 end
