@@ -1,0 +1,4 @@
+<%= form_for trip do |t| %>
+  Rating(1-5): <%= t.number_field :rating%>
+  <%= t.submit "Update Rating" %>
+  <% end %>

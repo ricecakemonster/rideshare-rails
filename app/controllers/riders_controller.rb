@@ -29,6 +29,7 @@ class RidersController < ApplicationController
 
     if @rider.update_attributes(rider_params)
     redirect_to rider_path(@rider)
+
     else
       render 'edit'
     end
@@ -42,9 +43,11 @@ class RidersController < ApplicationController
 
   def new_trip
     @rider = Rider.find(params[:id])
+    # if new_trip_ok?
     avail_drivers = Trip.where.not(rating: nil)
     driver = avail_drivers.sample
     @rider.trips.create(driver_id: driver.driver_id, cost: 0.0, date: Time.now)
+    # end
     redirect_to rider_path
   end
 
@@ -53,4 +56,14 @@ class RidersController < ApplicationController
   def rider_params
     return params.require(:rider).permit(:name, :phone_num)
   end
+
+  def new_trip_ok?
+    @rider.trips.each do |trip|
+      if trip.rating == nil
+        return false
+      end
+    end
+    return true
+  end
+
 end

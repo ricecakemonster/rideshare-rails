@@ -1,34 +1,17 @@
+<%= link_to "Return to the previous page", :back %>
 <h1><%= @rider.name %></h1>
 <h2>Phone number: <%= @rider.phone_num%></h2>
 <h2>Trips: </h2>
+<% @trips = @rider.trips.order(:date) %>
 <ol>
-  <% total = 0 %>
   <% if @rider.trips.empty?%>
   <%= "No rides history" %>
   <% else %>
-  <% @trips = @rider.trips.order(:date) %>
-  <% @trips.each do |trip| %>
-  <li>
-    <p>Trip ID: <%= link_to trip.id, trip_path(trip.id)%></p>
-    <p>Trip Date: <%= trip.date %></p>
-    <p>Driver ID: <%= trip.driver_id %></p>
-    <p>Cost: $<%= trip.cost %></p>
-    <p><%= form_for trip do |t| %>
-      Rating: <%= t.number_field :rating%>
-      <%= t.submit "Update Rating" %>
-      <% end %>
-    </p>
-
-
-
-
-  </li>
-  <% total += trip.cost %>
+  <%= render partial: "rider_detail", locals: { rider: @rider, trips: @trips } %>
   <% end %>
-
-  <%end%>
 </ol>
-<h2><%= "Total amount this rider has been charged: $#{total}" %></h2>
+
+<h2><%= "Total amount this rider has been charged: $#{@rider.total_cost}" %></h2>
 
 <%= link_to "New Trip", new_trip_path(@rider.id), method: :post %>
 <%= link_to "Edit", edit_rider_path(@rider.id) %>

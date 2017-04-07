@@ -3,9 +3,9 @@
 <%= form_for @trip do |f| %>
   Driver ID: <%= f.number_field :driver_id %>
   Rider ID: <%= f.number_field :rider_id %>
-  Date: <%= f.date_field  :date%>
+  Date: <%= f.date_field :date%>
   Cost: $<%= f.number_field :cost%>
   Rating: <%= f.number_field :rating%>
 
-  <%= f.submit value: "Save Changes"%>
+  <%= t.submit value: "Save Changes"%>
 <%end%>
