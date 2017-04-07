@@ -1,15 +1,79 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+@import url('https://fonts.googleapis.com/css?family=Delius+Unicase');
+
+main{
+  width: 80%;
+  margin-left: 10%;
+  border: 2px solid orange;
+  padding:10px;
+}
+
+li p:first-of-type{
+  color:lightgrey;
+}
+
+*{
+  color:white;
+  font-family: 'Delius Unicase';
+}
+
+article li{
+  border: 2px solid orange;
+  background-color: coral;
+  margin:10px;
+  padding: 10px;
+}
+
+ul{
+  padding:0;
+}
+
+a{
+  text-decoration: none;
+  color: cyan;
+  margin: 5px;
+}
+
+span{
+  float:right;
+}
+
+li{
+  list-style: none;
+}
+
+li p:first-of-type{
+  font-size: 1.5rem;
+  display: inline;
+}
+
+
+h1{
+  text-align: center;
+  font-size: 3rem;
+  color: cyan;
+}
+
+body{
+  background-color: lightcoral;
+}
+
+div{
+  text-align: center;
+}
+
+input{
+  color:orange;
+  display: block;
+  margin: 15px;
+}
+
+input:last-of-type{
+  color:cyan;
+  border: 2px solid orange;
+  background-color: coral;
+}
+
+select{
+  border: 2px solid orange;
+  background-color: coral;
+}
