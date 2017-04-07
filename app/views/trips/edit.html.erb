@@ -4,8 +4,8 @@
   Driver ID: <%= f.number_field :driver_id %>
   Rider ID: <%= f.number_field :rider_id %>
   Date: <%= f.date_field :date%>
-  Cost: $<%= f.number_field :cost%>
-  Rating: <%= f.number_field :rating%>
+  Cost: $<%= f.number_field :cost, class: :text_field, step: :any%>
+  Rating: <%= f.number_field :rating, class: :text_field, step: :any%>
   <%= f.submit "Save Changes"%>
 <%end%>
 

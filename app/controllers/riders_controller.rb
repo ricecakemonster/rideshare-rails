@@ -5,6 +5,7 @@ class RidersController < ApplicationController
 
     def show
         @rider = Rider.find(params[:id])
+        session[:prev_url] = request.referer
     end
 
     def new
@@ -47,7 +48,7 @@ class RidersController < ApplicationController
         if new_trip_ok?
             avail_drivers = Driver.all.map { |driver| driver unless driver.trips.any? { |trip| trip.rating.nil? } }
             driver = avail_drivers.sample
-            trip = @rider.trips.create(driver_id: driver.driver_id, cost: 0.0, date: Time.now)
+            trip = @rider.trips.create(driver_id: driver.id, cost: 0.0, date: Time.now)
         end
         redirect_to rider_path
     end
