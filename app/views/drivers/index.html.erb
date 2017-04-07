@@ -1,11 +1,12 @@
 <h1>All the drivers</h1>
-<%= link_to 'Click to add new driver', new_driver_path %>
 
 <ol>
   <% @drivers.sort_by{|d| d.id}.each do |driver| %>
     <li>
       <p>Name: <%= link_to driver[:name], driver_path(driver[:id]) %></p>
       <p>VIN: <%= driver[:vin] %> </p>
+      <%= link_to 'Delete', driver_path(driver.id), data: {:confirm => 'You sure?'}, :method => :delete%>
+      <%= link_to "Edit this driver", edit_driver_path(driver.id) %>
 
       <% if driver.driver_trips.empty? %>
         <p>No trips have been given yet</p>
