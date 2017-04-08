@@ -1,4 +1,6 @@
 <%= link_to "Return to the previous page", :back %>
+
+
 <section>
   <%= form_for @rider do |f| %>
     <div>Name: <%= f.text_field :name %></div>
@@ -14,4 +16,3 @@
   <% end %>
 <% end %>
 </section>
-<%= link_to "Go back to Rider List", riders_path %>

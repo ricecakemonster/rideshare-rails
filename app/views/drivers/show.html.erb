@@ -8,6 +8,10 @@
     <h2>Average Rating: <%= @driver.rating%> out of 5 </h2>
   <%end%>
 
+  <%= link_to 'Delete', driver_path(params[:id]), data: {:confirm => 'You sure?'}, :method => :delete%>
+  <%= link_to "Edit this driver", edit_driver_path %>
+
+<h2>Trips:</h2>
   <ul>
     <% @driver.driver_trips.sort_by{|t| t.date}.reverse.each do |trip| %>
     <li>
@@ -19,7 +23,3 @@
   </li>
   <%end%>
 </ul>
-
-
-<%= link_to 'Delete', driver_path(params[:id]), data: {:confirm => 'You sure?'}, :method => :delete%>
-<%= link_to "Edit this driver", edit_driver_path %>

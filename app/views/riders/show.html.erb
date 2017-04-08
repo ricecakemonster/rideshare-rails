@@ -3,6 +3,11 @@
 <h2>Phone number: <%= @rider.phone_num%></h2>
 <h2><%= "Total amount this rider has been charged: $#{@rider.total_cost} from #{@rider.trips.count} trips" %></h2>
 
+<%= link_to "New Trip", new_trip_path(@rider.id), method: :post %>
+<%= link_to "Edit", edit_rider_path(@rider.id) %>
+<%= link_to "Delete", rider_path(@rider.id), method: :delete, data: {confirm: "Are you sure to delete rider #{@rider.name}?"}%>
+
+
 <h2>Trips: </h2>
 
 <ol>
@@ -12,7 +17,3 @@
   <%= render partial: "riders/rider_detail", locals: { rider: @rider} %>
   <% end %>
 </ol>
-
-<%= link_to "New Trip", new_trip_path(@rider.id), method: :post %>
-<%= link_to "Edit", edit_rider_path(@rider.id) %>
-<%= link_to "Delete", rider_path(@rider.id), method: :delete, data: {confirm: "Are you sure to delete rider #{@rider.name}?"}%>

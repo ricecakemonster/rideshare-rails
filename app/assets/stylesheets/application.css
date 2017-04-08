@@ -7,6 +7,20 @@ main{
   padding:10px;
 }
 
+nav{
+  text-align: center;
+  border-bottom: 2px solid orange;
+  padding: 10px;
+}
+
+nav a{
+  margin:35px;
+}
+
+nav a:hover{
+  color:orange;
+}
+
 li p:first-of-type{
   color:lightgrey;
 }
@@ -27,6 +41,10 @@ ul{
   padding:0;
 }
 
+ol{
+  margin-left: 30%;
+}
+
 a{
   text-decoration: none;
   color: cyan;
@@ -39,6 +57,10 @@ span{
 
 li{
   list-style: none;
+  border:2px solid orange;
+  margin: 10px;
+  padding:10px;
+  width:50%;
 }
 
 li p:first-of-type{
@@ -59,6 +81,7 @@ body{
 
 div{
   text-align: center;
+  display: inline;
 }
 
 input{

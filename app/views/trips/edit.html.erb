@@ -1,5 +1,7 @@
 <h1> Trip #<%= @trip[:id]%> Edit Form </h1>
 
+<%= link_to "Return to the previous page", :back %>
+
 <%= form_for @trip do |f| %>
   Driver ID: <%= f.number_field :driver_id %>
   Rider ID: <%= f.number_field :rider_id %>
